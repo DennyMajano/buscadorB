@@ -39,7 +39,7 @@ export class LibroDetalleComponent implements OnInit {
     }
     
     abrirLector(){
-      window.open(STATIC.url_client +"libro/lector/"+this.info.archivo,'_blank');
+      window.open(STATIC.url_client +"libro/lector/"+this.info.archivo);
     }
   
   }

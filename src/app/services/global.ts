@@ -1,6 +1,6 @@
-const base_url = "https://api-bibliotech.servicios.saynets.com/";
-const url_public = "http:///192.168.1.100:8081/";
-const url_client = "http:///bibliotech.local/";
+const base_url = "https://api-bibliotech.servicios.saynets.com/bibliotech/api/";
+const url_public = "https://api-bibliotech.servicios.saynets.com/";
+const url_client = "localhost:4200/";
 const APP_NAME = "BiblioTECH";
 
 export const STATIC = {
