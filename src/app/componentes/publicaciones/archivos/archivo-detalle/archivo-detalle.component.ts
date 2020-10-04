@@ -44,9 +44,5 @@ export class ArchivoDetalleComponent implements OnInit {
       }
     );
   }
-  
-  abrirLector(){
-    window.open(STATIC.url_client +"archivo/lector/"+this.info.archivo,'_blank');
-  }
 
 }
