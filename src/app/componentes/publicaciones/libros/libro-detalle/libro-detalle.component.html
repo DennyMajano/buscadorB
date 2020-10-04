@@ -1,0 +1,53 @@
+
+
+    <div class="row" style="margin-top: 70px" *ngIf="info!=null; else cargando">
+      <div class="col-1"></div>
+      <div class="col-4 ">
+        
+        <div class="jumbotron jumbotron-fluid p-5 "  >
+            <img  class="img-fluid mx-auto w-100"  src="{{imagen_url}}">
+           
+            
+        </div>
+      </div>
+      <div class="col-6">
+          <div class="jumbotron jumbotron-fluid p-5"  >
+          <h1 class="display-4">{{info.tema}}</h1>
+          <hr class="my-2">
+          <button type="button" class="btn btn-lg btn-primary" (click)="abrirLector()">Leer libro</button>
+          
+          <hr class="mt-2">
+          <p class="lead">{{info.descripcion}}</p>
+         
+          <div class="mt-2 letter-info-small">
+              <p>Agregado por {{info.publicado_por}} en {{info.fecha_publicacion}}</p>
+              <p *ngIf="info.actualizado_por!=null">Actualizado por {{info.actualizado_por}} en {{info.fecha_actualizacion}}</p>
+            </div>
+            <p class="lead"><span class="enphasis"> Asignatura: </span>{{info.asignatura}}</p>
+            <p class="lead"><span class="enphasis"> Editorial: </span>{{info.editorial}}</p>
+            <p class="lead"><span class="enphasis"> Autor: </span>{{info.autor}}</p>
+            <p class="lead"><span class="enphasis"> Género: </span>{{info.genero}}</p>
+            <p class="lead"><span class="enphasis"> Grado: </span>{{info.grado}}</p>
+
+        </div>
+      </div>
+      <div class="col-1"></div>
+    </div>
+
+
+
+    <ng-template #cargando>
+        <div class="mx-auto w-75 " style="margin-top: 70px">
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+            </div>
+          <p>Cargando Libro...</p>
+        </div>
+      </ng-template>
+    
+    
+  
+
+
+
+
