@@ -1,4 +1,4 @@
-const base_url = "http:///192.168.1.100:8081/bibliotech/api/";
+const base_url = "https://api-bibliotech.servicios.saynets.com/";
 const url_public = "http:///192.168.1.100:8081/";
 const url_client = "http:///bibliotech.local/";
 const APP_NAME = "BiblioTECH";
