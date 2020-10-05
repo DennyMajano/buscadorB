@@ -1,63 +1,81 @@
-<div class="fixed-top w-75 ml-auto mt-2  mr-2">
+<div class="fixed-top mt-5 bg-dark">
+  <div class="row">
       
-    <div class="input-group">
-        <div  class="input-group-append">
-            <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="categoriaBusqueda">
-              <option value="todo">Todo</option>
-              <option value="libro">Libro (Avanzado)</option>
-              <option value="libro_general">Libros</option>
-              <option value="articulo">Articulo</option>
-              <option value="archivo">Archivos</option>
-              <option value="multimedia">Multimedia</option>
-            </select>
-          </div>
-   
-          <input *ngIf="categoriaBusqueda!='libro'; else LibroHabilitado" type="text" class="form-control" placeholder="Escribe algo para buscar"  [(ngModel)]="busqueda" (keyup.enter)="refresh()">
-
+        
+      <div class="col-sm-12 col-md-9 pr-0">
+        <input *ngIf="categoriaBusqueda!='libro'; else LibroHabilitado" type="text" class="form-control" placeholder="Escribe algo para buscar"  [(ngModel)]="busqueda" (keyup.enter)="refresh()">
         <ng-template #LibroHabilitado>
-            <input type="text" class="form-control" id="campoLibroTitulo" placeholder="Título" (keyup.enter)="refresh()" [formControl]="campoLibroTitulo">
-            <input type="text" class="form-control" id="campoLibroAutor" placeholder="Autor" (keyup.enter)="refresh()" [formControl]="campoLibroAutor">
-            <input type="text" class="form-control" id="campoLibroEditorial" placeholder="Editorial" (keyup.enter)="refresh()" [formControl]="campoLibroEditorial">
-            <input type="text" class="form-control" id="campoLibroGenero" placeholder="Género" (keyup.enter)="refresh()" [formControl]="campoLibroGenero">
+          <input type="text" class="form-control" id="campoLibroTitulo" placeholder="Título" (keyup.enter)="refresh()" [formControl]="campoLibroTitulo">
+          <input type="text" class="form-control" id="campoLibroAutor" placeholder="Autor" (keyup.enter)="refresh()" [formControl]="campoLibroAutor">
+          <input type="text" class="form-control" id="campoLibroEditorial" placeholder="Editorial" (keyup.enter)="refresh()" [formControl]="campoLibroEditorial">
+          <input type="text" class="form-control" id="campoLibroGenero" placeholder="Género" (keyup.enter)="refresh()" [formControl]="campoLibroGenero">
         </ng-template>
-      <div class="input-group-append">
-          <button class="btn btn-primary" type="button"(click)="refresh()"><i class="fa fa-search"></i></button>
+        
       </div>
-    </div>
+      <div class="col-8 col-sm-8 col-md-2 p-0 "> 
+        <select class="form-control w-100" id="exampleFormControlSelect1" [(ngModel)]="categoriaBusqueda">
+          <option value="todo">Todo</option>
+          <option value="libro" class="d-none d-md-block">Libro (Avanzado)</option>
+          <option value="libro_general">Libros</option>
+          <option value="articulo">Articulo</option>
+          <option value="archivo">Archivos</option>
+          <option value="multimedia">Multimedia</option>
+        </select>
+      </div>
+      <div class="col-4 col-sm-4 col-md-1 p-0">
+        <button class="btn btn-primary w-100" type="button"(click)="refresh()"><i class="fa fa-search "></i></button>
+      </div>
+  </div>    
     
 </div>
 
-<div  class="mx-auto w-75 " style="margin-top: 70px">
-  <div *ngIf="resultados!=null; else cargando">
-    <div *ngIf="resultados!=''; else noHayResultado">
-      <div  class="card border-secondary mb-1" *ngFor="let art of resultados | paginate: { itemsPerPage: 10, currentPage: p }">
-          <div  class="card-body text-secondary">
-            
-            <div class="d-flex">
-              <div *ngIf="art.categoria=='Libro' || art.categoria=='Archivo'|| art.categoria=='Multimedia';" class="mr-2"><img src="{{art.imagen}}" width="70px" height="90px"></div>
-              <div>
-                  <div><h5 class="card-title">
-                      <a *ngIf="art.categoria=='Libro';" href="libro/info/{{art._id}}">{{art.tema+" | "+art.categoria}}<i class="fa fa-book ml-1"></i></a>
-                      <a *ngIf="art.categoria=='Archivo';" href="archivo/info/{{art._id}}">{{art.tema+" | "+art.categoria}}<i class="fa fa-file ml-1"></i></a>
-                      <a *ngIf="art.categoria=='Multimedia';" href="multimedia/{{art._id}}">{{art.tema+" | "+art.categoria}}<i class="fa fa-video-camera ml-1"></i></a>
-                      <a *ngIf="art.categoria=='Articulo';" href="articulo/{{art._id}}">{{art.tema+" | "+art.categoria}}<i class="fa fa-newspaper-o ml-1"></i></a>              
-                    </h5>
-                  </div>              
-                  <div class="card-text text-truncate">{{art.descripcion}}</div>
-              </div>
-              </div>
-          </div>
-      </div>
-      <pagination-controls (pageChange)="p = $event" responsive="true"
-      previousLabel="Anterior"
-      nextLabel="Siguiente"></pagination-controls>
-    </div>
-  </div>
-  
-     
-      
-</div>
 
+<!--NUEVO-->
+<div class="row">
+  <div class="col"></div>
+  <div class="col-sm-12 col-md-8 col-md-8" style="margin-top: 80px">
+
+
+    <div *ngIf="resultados!=null; else cargando">
+      <div *ngIf="resultados!=''; else noHayResultado">
+        <div  class="card border-secondary mb-1 p-2" *ngFor="let art of resultados | paginate: { itemsPerPage: 10, currentPage: p }">
+           
+            <div class="row">
+              <div *ngIf="art.categoria=='Libro' || art.categoria=='Archivo'|| art.categoria=='Multimedia';" class="d-none d-md-block col-md-3 col-lg-2">
+                <div class="text-center h-100 d-flex flex-wrap align-items-center" ><img style="max-width: 100%;" src="{{art.imagen}}" ></div>
+              </div>
+              <div class="col-md-9 col-lg-10">
+                <div><h5 class="card-title">
+                  <a *ngIf="art.categoria=='Libro';" href="libro/info/{{art._id}}">{{art.tema+" | "+art.categoria}}<i class="fa fa-book ml-1"></i></a>
+                  <a *ngIf="art.categoria=='Archivo';" href="archivo/info/{{art._id}}">{{art.tema+" | "+art.categoria}}<i class="fa fa-file ml-1"></i></a>
+                  <a *ngIf="art.categoria=='Multimedia';" href="multimedia/{{art._id}}">{{art.tema+" | "+art.categoria}}<i class="fa fa-video-camera ml-1"></i></a>
+                  <a *ngIf="art.categoria=='Articulo';" href="articulo/{{art._id}}">{{art.tema+" | "+art.categoria}}<i class="fa fa-newspaper-o ml-1"></i></a>              
+                </h5>
+              </div>              
+              <div class="card-text" style="max-height: 100px;
+              overflow: hidden;">{{art.descripcion}}</div>
+              </div>
+            </div>
+
+
+
+        </div>
+        <pagination-controls (pageChange)="p = $event" responsive="true"
+        previousLabel="Anterior"
+        nextLabel="Siguiente"></pagination-controls>
+      </div>
+    </div>
+    
+
+
+
+  </div>
+  <div class="col"></div>
+
+</div>
+<!--/////////-->
+
+<!--/////////-->
 <ng-template #cargando>
   <div class="mx-auto w-100 " style="margin-top: 70px" *ngIf="categoriaValida==true else NoValido">
       <div class="progress" >
