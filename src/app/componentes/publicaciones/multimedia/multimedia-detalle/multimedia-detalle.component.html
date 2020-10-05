@@ -6,7 +6,7 @@
   <div class="col-lg-8">
 
 <div class="jumbotron jumbotron-fluid p-5"  >
-  <h1 class="display-4">{{info.tema}}</h1>
+  <h3>{{info.tema}}</h3>
   <hr class="my-2">
   
  
@@ -15,7 +15,7 @@
       <small>Por {{info.publicado_por}} en {{info.fecha_publicacion}}</small><br>
       <small *ngIf="info.actualizado_por!=null">, actualizado por {{info.actualizado_por}} en {{info.fecha_actualizacion}}</small>
   </div>
-  <div class=" border border-secondary rounded p-2">{{info.descripcion}}</div>
+  <p class="lead">{{info.descripcion}}</p>
 
  
 
