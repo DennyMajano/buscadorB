@@ -1,5 +1,5 @@
-<div class="fixed-top  d-flex justify-content-center mt-1 ">
-    <div class=" d-flex">
+<div class="fixed-top  d-flex justify-content-center  mt-5 mt-sm-5 mt-md-2">
+    <div class=" d-flex bg-dark p-1">
         <button type="button " class="btn btn-sm btn-secondary " (click)="zoomIn()"><i class="fa fa-search-plus "></i></button>
         <span class="bg-light p-2">{{truncar(zoom*100)}}%</span>
         <button type="button" class="btn btn-sm btn-secondary" (click)="zoomOut()"><i class="fa fa-search-minus"></i></button>
@@ -11,9 +11,9 @@
 </div>
     
 
-<div style="margin-bottom: 200px">
+<div >
     <pdf-viewer 
-    style="display: block; width:100%; background-color: #0e0e0e"
+    style="display: block; width:100%; margin-top: 100px; background-color: #0e0e0e"
     [src]="pdfSrc" 
          
           [show-all]="true"
