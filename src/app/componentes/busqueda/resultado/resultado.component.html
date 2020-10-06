@@ -1,18 +1,32 @@
-<div class="fixed-top mt-5 bg-dark">
+<div class="fixed-top mt-5 pb-1 bg-dark">
   <div class="row">
       
         
       <div class="col-sm-12 col-md-9 pr-0">
         <input *ngIf="categoriaBusqueda!='libro'; else LibroHabilitado" type="text" class="form-control" placeholder="Escribe algo para buscar"  [(ngModel)]="busqueda" (keyup.enter)="refresh()">
         <ng-template #LibroHabilitado>
-          <input type="text" class="form-control" id="campoLibroTitulo" placeholder="Título" (keyup.enter)="refresh()" [formControl]="campoLibroTitulo">
-          <input type="text" class="form-control" id="campoLibroAutor" placeholder="Autor" (keyup.enter)="refresh()" [formControl]="campoLibroAutor">
-          <input type="text" class="form-control" id="campoLibroEditorial" placeholder="Editorial" (keyup.enter)="refresh()" [formControl]="campoLibroEditorial">
-          <input type="text" class="form-control" id="campoLibroGenero" placeholder="Género" (keyup.enter)="refresh()" [formControl]="campoLibroGenero">
+          <div class="form-row">
+            <div class="col">
+              <input type="text" class="form-control" id="campoLibroTitulo" placeholder="Título" (keyup.enter)="refresh()" [formControl]="campoLibroTitulo">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" id="campoLibroAutor" placeholder="Autor" (keyup.enter)="refresh()" [formControl]="campoLibroAutor">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" id="campoLibroEditorial" placeholder="Editorial" (keyup.enter)="refresh()" [formControl]="campoLibroEditorial">  
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" id="campoLibroGenero" placeholder="Género" (keyup.enter)="refresh()" [formControl]="campoLibroGenero">
+            </div>
+            
+            
+            
+            
+          </div>
         </ng-template>
         
       </div>
-      <div class="col-8 col-sm-8 col-md-2 p-0 "> 
+      <div class="col-8 col-sm-8 col-md-2 pr-0 "> 
         <select class="form-control w-100" id="exampleFormControlSelect1" [(ngModel)]="categoriaBusqueda">
           <option value="todo">Todo</option>
           <option value="libro" class="d-none d-md-block">Libro (Avanzado)</option>

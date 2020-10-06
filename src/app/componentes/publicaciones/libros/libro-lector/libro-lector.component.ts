@@ -33,7 +33,7 @@ export class LibroLectorComponent implements OnInit {
   }
 
   zoomIn(){
-    if(this.zoom<1)
+    if(this.zoom<2)
       this.zoom=parseFloat((this.zoom+0.05).toFixed(2));
   }
 
@@ -63,5 +63,6 @@ export class LibroLectorComponent implements OnInit {
     caseSensitive: false, findPrevious: undefined, highlightAll: true, phraseSearch: true, query: stringToSearch
   });  
 }
+
 
 }

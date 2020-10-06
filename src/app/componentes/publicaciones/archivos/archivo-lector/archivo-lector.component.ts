@@ -31,7 +31,7 @@ export class ArchivoLectorComponent implements OnInit {
   }
 
   zoomIn(){
-    if(this.zoom<1)
+    if(this.zoom<2)
       this.zoom=parseFloat((this.zoom+0.05).toFixed(2));
   }
 

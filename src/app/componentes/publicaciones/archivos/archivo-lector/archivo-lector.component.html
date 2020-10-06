@@ -1,23 +1,27 @@
-<div class="fixed-top mt-2 d-flex justify-content-center">
+<div class="fixed-top  d-flex justify-content-center mt-1 ">
     <div class=" d-flex">
-        <button type="button" class="btn btn-secondary" (click)="zoomIn()"><i class="fa fa-search-plus"></i></button>
+        <button type="button " class="btn btn-sm btn-secondary " (click)="zoomIn()"><i class="fa fa-search-plus "></i></button>
         <span class="bg-light p-2">{{truncar(zoom*100)}}%</span>
-        <button type="button" class="btn btn-secondary" (click)="zoomOut()"><i class="fa fa-search-minus"></i></button>
+        <button type="button" class="btn btn-sm btn-secondary" (click)="zoomOut()"><i class="fa fa-search-minus"></i></button>
         
-        <button type="button" class="btn btn-secondary" (click)="anteriorPagina()"><i class="fa fa-arrow-left"></i></button>
-        <button type="button" class="btn btn-secondary" (click)="siguientePagina()"><i class="fa fa-arrow-right"></i></button>
-        <input type="number" class="p-0"  id="irPagina" placeholder="Página" [(ngModel)]="currentPage" min="1" [max]="pages" class="text-center"><span class="bg-light p-2">/{{pages}}</span>
+      
+        <input #campoBusquedaLibro class=" form-control" type="text" id="buscar" placeholder="Buscar..." (keyup)="search(campoBusquedaLibro.value)" >
     </div>
-    <div class="d-flex">
-        <input #campoBusquedaLibro  type="text" id="buscar" placeholder="buscar..." (keyup)="search(campoBusquedaLibro.value)" >
-    </div>
+   
 </div>
-<pdf-viewer [src]="pdfSrc" 
+    
+
+<div style="margin-bottom: 200px">
+    <pdf-viewer 
+    style="display: block; width:100%; background-color: #0e0e0e"
+    [src]="pdfSrc" 
+         
+          [show-all]="true"
           [zoom]="zoom"
-          [show-all]="false"
-          [page]="currentPage"
-          style="display: block; width:100%; height: 90%; background-color: black"
+          
           [original-size]="false"
           [autoresize]="true"
           (after-load-complete)="callBackFn($event)"
-#pdfViewer></pdf-viewer>
+         
+            #pdfViewer></pdf-viewer>
+</div>
